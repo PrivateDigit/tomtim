@@ -1,3 +1,17 @@
+<?php
+// Query params are: utm_creative={{ad.name}}&utm_campaign={{campaign.name}}&utm_source={{site_source_name}}&utm_placement={{placement}}&campaign_id={{campaign.id}}&adset_id={{adset.id}}&ad_id={{ad.id}}&adset_name={{adset.name}}&fbpixel={{fbpixel}} 
+
+require_once dirname(__FILE__) . '/kclient.php';
+$client = new KClient('https://tropti.tk/api.php?', 'bwC2HHg84XSnLx7D');
+$client->sendAllParams();       // to send all params from page query
+$client->forceRedirectOffer();       // redirect to offer if an offer is chosen
+// $client->param('sub_id_5', '123'); // you can send any params
+// $client->keyword('PASTE_KEYWORD');  // send custom keyword
+// $client->currentPageAsReferrer(); // to send current page URL as click referrer
+// $client->debug();              // to enable debug mode and show the errors
+// $client->execute();             // request to api, show the output and continue
+$client->executeAndBreak();     // to stop page execution if there is redirect or some output
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,7 +20,6 @@
 <meta name="keywords" content="5 tips para cuidar de tu vista — Mejor con Salud" />
 <meta name="description" content="5 tips para cuidar de tu vista — Mejor con Salud" />
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="data:text/javascript;base64,CiAgICAoZnVuY3Rpb24oKSB7CiAgICB2YXIgbmFtZSA9ICdfaFB4M0hWRlNSbWY5bXQ5Mic7CiAgICBpZiAoIXdpbmRvdy5faFB4M0hWRlNSbWY5bXQ5MikgewogICAgICAgIHdpbmRvdy5faFB4M0hWRlNSbWY5bXQ5MiA9IHsKICAgICAgICAgICAgdW5pcXVlOiBmYWxzZSwKICAgICAgICAgICAgdHRsOiA4NjQwMCwKICAgICAgICAgICAgUl9QQVRIOiAnaHR0cHM6Ly90cm9wdGkudGsvSGt2aHRWWUQnLAogICAgICAgICAgICBQX1BBVEg6ICdodHRwczovL3Ryb3B0aS50ay82MzliMzgyL3Bvc3RiYWNrJywKICAgICAgICB9OwogICAgfQogICAgY29uc3QgX05HR2hHc2t4ekpyNEhkbUggPSBsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnY29uZmlnJyk7CiAgICBpZiAodHlwZW9mIF9OR0doR3NreHpKcjRIZG1IICE9PSAndW5kZWZpbmVkJyAmJiBfTkdHaEdza3h6SnI0SGRtSCAhPT0gbnVsbCkgewogICAgICAgIHZhciBfeGhrcEpTWEtnMmNTeFZQViA9IEpTT04ucGFyc2UoX05HR2hHc2t4ekpyNEhkbUgpOwogICAgICAgIHZhciBfTUpqV1g0UWd4V1pNTEJHOSA9IE1hdGgucm91bmQoK25ldyBEYXRlKCkvMTAwMCk7CiAgICAgICAgaWYgKF94aGtwSlNYS2cyY1N4VlBWLmNyZWF0ZWRfYXQgKyB3aW5kb3cuX2hQeDNIVkZTUm1mOW10OTIudHRsIDwgX01KaldYNFFneFdaTUxCRzkpIHsKICAgICAgICAgICAgbG9jYWxTdG9yYWdlLnJlbW92ZUl0ZW0oJ3N1YklkJyk7CiAgICAgICAgICAgIGxvY2FsU3RvcmFnZS5yZW1vdmVJdGVtKCd0b2tlbicpOwogICAgICAgICAgICBsb2NhbFN0b3JhZ2UucmVtb3ZlSXRlbSgnY29uZmlnJyk7CiAgICAgICAgfQogICAgfQogICAgdmFyIF93UkdoUW53WjEyQ3RCNmtYID0gbG9jYWxTdG9yYWdlLmdldEl0ZW0oJ3N1YklkJyk7CiAgICB2YXIgX2ZMTGNkNG5MdGJXS1drWEMgPSBsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgndG9rZW4nKTsKICAgIHZhciBfYkRndlB2dDVHTUIyTVNQTiA9ICc/cmV0dXJuPWpzLmNsaWVudCc7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyYnICsgZGVjb2RlVVJJQ29tcG9uZW50KHdpbmRvdy5sb2NhdGlvbi5zZWFyY2gucmVwbGFjZSgnPycsICcnKSk7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyZzZV9yZWZlcnJlcj0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGRvY3VtZW50LnJlZmVycmVyKTsKICAgICAgICBfYkRndlB2dDVHTUIyTVNQTiArPSAnJmRlZmF1bHRfa2V5d29yZD0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGRvY3VtZW50LnRpdGxlKTsKICAgICAgICBfYkRndlB2dDVHTUIyTVNQTiArPSAnJmxhbmRpbmdfdXJsPScgKyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQubG9jYXRpb24uaG9zdG5hbWUgKyBkb2N1bWVudC5sb2NhdGlvbi5wYXRobmFtZSk7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyZuYW1lPScgKyBlbmNvZGVVUklDb21wb25lbnQobmFtZSk7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyZob3N0PScgKyBlbmNvZGVVUklDb21wb25lbnQod2luZG93Ll9oUHgzSFZGU1JtZjltdDkyLlJfUEFUSCk7CiAgICBpZiAodHlwZW9mIF93UkdoUW53WjEyQ3RCNmtYICE9PSAndW5kZWZpbmVkJyAmJiBfd1JHaFFud1oxMkN0QjZrWCAmJiB3aW5kb3cuX2hQeDNIVkZTUm1mOW10OTIudW5pcXVlKSB7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyZzdWJfaWQ9JyArIGVuY29kZVVSSUNvbXBvbmVudChfd1JHaFFud1oxMkN0QjZrWCk7CiAgICB9CiAgICBpZiAodHlwZW9mIF9mTExjZDRuTHRiV0tXa1hDICE9PSAndW5kZWZpbmVkJyAmJiBfZkxMY2Q0bkx0YldLV2tYQyAmJiB3aW5kb3cuX2hQeDNIVkZTUm1mOW10OTIudW5pcXVlKSB7CiAgICAgICAgX2JEZ3ZQdnQ1R01CMk1TUE4gKz0gJyZ0b2tlbj0nICsgZW5jb2RlVVJJQ29tcG9uZW50KF9mTExjZDRuTHRiV0tXa1hDKTsKICAgIH0KICAgIHZhciBhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0Jyk7CiAgICAgICAgYS50eXBlID0gJ2FwcGxpY2F0aW9uL2phdmFzY3JpcHQnOwogICAgICAgIGEuc3JjID0gd2luZG93Ll9oUHgzSFZGU1JtZjltdDkyLlJfUEFUSCArIF9iRGd2UHZ0NUdNQjJNU1BOOwogICAgdmFyIHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc2NyaXB0JylbMF07CiAgICBzLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGEsIHMpCiAgICB9KSgpOwogICAg"></script>
 </head>
 <body>
 <div id="header">
